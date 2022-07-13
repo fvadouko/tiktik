@@ -1,19 +1,14 @@
 /** @type {import('next').NextConfig} */
-//const nextConfig = {
-  //reactStrictMode: true,
-  //swcMinify: true,
-//}
-
-//module.exports = nextConfig
-
-const STUDIO_REWRITE = {
-  source: "/studio/:path*",
-  destination:
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3333/studio/:path*"
-      : "/studio/index.html",
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: [
+      'lh3.googleusercontent.com',
+      'cdn.pixabay.com',
+      'p16-amd-va.tiktokcdn.com',
+      'image.shutterstock.com',
+    ],
+  },
 };
 
-module.exports = {
-  rewrites: () => [STUDIO_REWRITE],
-};
+module.exports = nextConfig;
